@@ -58,27 +58,32 @@ def main(board_state, expected_output):
             board_state = switch_a(board_state)
             board_state = switch_d(board_state)
             board_state = switch_b(board_state)
+            print('process flow, c, a, d, b')
 
         elif switch == 'c':
             board_state = switch_e(board_state)
             board_state = switch_a(board_state)
             board_state = switch_d(board_state)
             board_state = switch_b(board_state)
+            print('process flow, e, a, d, b')
         elif switch == 'a':
             board_state = switch_e(board_state)
             board_state = switch_c(board_state)
             board_state = switch_d(board_state)
             board_state = switch_b(board_state)
+            print('process flow, e, c, d, b')
         elif switch == 'd':
             board_state = switch_e(board_state)
             board_state = switch_c(board_state)
             board_state = switch_a(board_state)
             board_state = switch_b(board_state)
+            print('process flow, e, c, a, b')
         elif switch == 'b':
             board_state = switch_e(board_state)
             board_state = switch_c(board_state)
             board_state = switch_a(board_state)
             board_state = switch_d(board_state)
+            print('process flow, e, c, a, d')
 
 
 
