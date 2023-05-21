@@ -30,7 +30,7 @@ def switch_e(switch_state):
     return switch_state
 
 
-def main(board_state, expected_output):
+def main(original_state, expected_output):
     # temp_switch = switch_e(original_state_v2)
     # print('switch e', board_state)
     #
@@ -49,43 +49,53 @@ def main(board_state, expected_output):
     #
     # print('result', temp_switch, )
     # Try disabling each switch one by one and check if the output matches the expected output
-    switches = ['e', 'c', 'a', 'd', 'b']  # Order of switches to check
+    
+    switches = ['a', 'b', 'c', 'd', 'e']  # Order of switches to check
 
     # Try disabling each switch one by one and check if the output matches the expected output
     for switch in switches:
+
+        board_state = original_state.copy()
+
         if switch == 'e':
             board_state = switch_c(board_state)
             board_state = switch_a(board_state)
             board_state = switch_d(board_state)
             board_state = switch_b(board_state)
-            print('process flow, c, a, d, b')
+            if board_state == expected_output:
+                print('process flow, c, a, d, b')
 
         elif switch == 'c':
             board_state = switch_e(board_state)
             board_state = switch_a(board_state)
             board_state = switch_d(board_state)
             board_state = switch_b(board_state)
-            print('process flow, e, a, d, b')
+            if board_state == expected_output:
+                print('process flow, e, a, d, b')
+
         elif switch == 'a':
             board_state = switch_e(board_state)
             board_state = switch_c(board_state)
             board_state = switch_d(board_state)
             board_state = switch_b(board_state)
-            print('process flow, e, c, d, b')
+            if board_state == expected_output:
+                print('process flow, e, c, d, b')
+
         elif switch == 'd':
             board_state = switch_e(board_state)
             board_state = switch_c(board_state)
             board_state = switch_a(board_state)
             board_state = switch_b(board_state)
-            print('process flow, e, c, a, b')
+            if board_state == expected_output:
+                print('process flow, e, c, a, b')
+
         elif switch == 'b':
             board_state = switch_e(board_state)
             board_state = switch_c(board_state)
             board_state = switch_a(board_state)
             board_state = switch_d(board_state)
-            print('process flow, e, c, a, d')
-
-
+            if board_state == expected_output:
+                print('process flow, e, c, a, d')
 
         # Check if the modified board state matches the expected output
         if board_state == expected_output:
